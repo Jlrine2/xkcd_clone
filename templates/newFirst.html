@@ -1,0 +1,17 @@
+<!doctype html>
+<title>XKCD</title>
+<script src="../static/lazy.js"></script>
+
+
+{% for num in range(maxVal,1, -1) %}
+<div>
+    <br>
+    <br>
+
+    {{getComic(num)}}
+    
+    <br>
+    <br>
+</div>
+
+{% endfor %}
