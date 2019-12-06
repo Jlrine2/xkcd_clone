@@ -4,6 +4,7 @@ import json
 import requests
 import scrape
 import os
+
 app = Flask(__name__)
 
 images = {}
@@ -18,7 +19,7 @@ def getComic(num):
     
     if num < 10 or int(os.environ['MAX_VAL'])-num < 10:
         return Markup(F"""<h1>{image['title']}</h1> <img src="../static/archive/{num}.jpg"/> <p>"{image['alt']}</p>""")
-    return Markup(F"""<img class="lazy" data-src="../static/archive/{num}.jpg" title="{image['alt']}" alt="{image['title']}" />""")
+    return Markup(F"""<h1>{image['title']}</h1> <img class="lazy" data-src="../static/archive/{num}.jpg"/> <p>"{image['alt']}</p>""")
 app.add_template_global(getComic, name="getComic")
 
 
