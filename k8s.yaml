@@ -45,7 +45,7 @@ spec:
           - containerPort: 80
         volumeMounts:
         - name: archive
-          mountPath: /static/archive
+          mountPath: /app/static/archive
       volumes:
       - name: archive
         persistentVolumeClaim:
