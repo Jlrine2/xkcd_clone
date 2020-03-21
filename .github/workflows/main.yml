@@ -29,5 +29,6 @@ jobs:
       
     - name: deploy to k8s
       run: |
-        kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig delete namespaces xkcd-clone
         kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig apply -f $GITHUB_WORKSPACE/k8s.yaml
+        kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig rollout restart deployments/xkcd-clone namespaces xkcd-clone
+        
