@@ -10,7 +10,7 @@ app = Flask(__name__)
 def getComic(num):
     if num==404:
         return "<p>the 404th XKCD retruns a 404 error </p>"
-    image = json.load(open(f'static/archive{num}.json'))
+    image = json.load(open(f'static/archive/{num}.json'))
 
     
     if num < 10 or int(os.environ['MAX_VAL'])-num < 10:
