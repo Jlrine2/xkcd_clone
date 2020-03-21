@@ -5,7 +5,9 @@ import requests
 import scrape
 import os
 
+
 app = Flask(__name__)
+
 
 def getComic(num):
     if num==404:
