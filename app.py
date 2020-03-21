@@ -32,12 +32,10 @@ def all_images():
             scrape.download(max_val + 1)
             max_val += 1
         else:
-            reloadJSON()
             break
     
     return render_template("newFirst.html", images=images, maxVal=max_val)
 
 
 if __name__ == "__main__":
-    reloadJSON()
     app.run()
