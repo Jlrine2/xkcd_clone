@@ -31,7 +31,11 @@ app.add_template_global(getComic, name="getComic")
 def all_images():
     max_val=int(os.environ['MAX_VAL'])
     while True:
-        r = requests.get(F"https://xkcd.com/{max_val + 1}")
+        next_comic = max_val + 1
+        if next_comic == 404:
+            max_val +=1
+            continue
+        r = requests.get(F"https://xkcd.com/{next_comic}")
         if r.status_code == 200:
             scrape.download(max_val + 1)
             max_val += 1
