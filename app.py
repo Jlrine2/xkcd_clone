@@ -7,18 +7,10 @@ import os
 
 app = Flask(__name__)
 
-images = {}
-
-def reloadJSON():
-    global images
-    with open("data.json") as f:
-        images = json.load(f)
-
-
 def getComic(num):
     if num==404:
         return "<p>the 404th XKCD retruns a 404 error </p>"
-    image = images[str(num)]
+    image = json.load(f'static/archive{num}.json')
 
     
     if num < 10 or int(os.environ['MAX_VAL'])-num < 10:
