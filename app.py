@@ -29,7 +29,7 @@ app.add_template_global(getComic, name="getComic")
 
 @app.route("/")
 def all_images():
-    max_val = ([name for name in os.listdir('/app/static/archive') if name.endswith('jpg')])
+    max_val = len([name for name in os.listdir('/app/static/archive') if name.endswith('jpg')])
     while True:
         next_comic = max_val + 1
         if next_comic == 404:
