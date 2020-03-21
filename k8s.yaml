@@ -6,6 +6,23 @@ metadata:
 
 ---
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  namespace: xkcd-clone
+  name: xkcd-images
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   namespace: xkcd-clone
@@ -16,7 +33,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: do-block-storage
+  storageClassName: manual
 
 ---
 apiVersion: apps/v1
