@@ -10,6 +10,8 @@ kind: PersistentVolume
 metadata:
   namespace: xkcd-clone
   name: xkcd-images
+  labels:
+    type: csi
 spec:
   storageClassName: do-block-storage
   capacity:
