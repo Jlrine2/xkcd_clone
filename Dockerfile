@@ -9,7 +9,7 @@ COPY templates /app/templates
 COPY static /app/static
 
 
-ENV MAX_VAL=2237
+ENV MAX_VAL=0
 
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
