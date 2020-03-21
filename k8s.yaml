@@ -35,7 +35,7 @@ spec:
       volumes:
       - name: archive
         persistentVolumeClaim:
-        claimName: xkcd-images
+          claimName: xkcd-images
 
 ---
 apiVersion: v1
