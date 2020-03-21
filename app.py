@@ -8,6 +8,7 @@ import os
 app = Flask(__name__)
 
 images = {}
+max_val = ([name for name in os.listdir('/app/static/archive') if name.endswith('jpg')])
 
 def reloadJSON():
     global images
@@ -29,7 +30,6 @@ app.add_template_global(getComic, name="getComic")
 
 @app.route("/")
 def all_images():
-    max_val=int(os.environ['MAX_VAL'])
     while True:
         next_comic = max_val + 1
         if next_comic == 404:
@@ -40,7 +40,6 @@ def all_images():
             scrape.download(max_val + 1)
             max_val += 1
         else:
-            os.environ['MAX_val'] = str(max_val)
             reloadJSON()
             break
     
