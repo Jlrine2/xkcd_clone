@@ -37,8 +37,7 @@ def parse_Data(imageTag):
     return data
 
 def populate_JSON(image_data, num):
-    data[str(num)] = image_data
     with open(f"static/archive/{num}.json", "w+") as f:
-        json.dump(data, f)
+        json.dump(image_data, f)
 
         
