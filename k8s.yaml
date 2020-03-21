@@ -5,6 +5,20 @@ metadata:
   name: xkcd-clone
 
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: xkcd-clone
+  name: xkcd-images
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: do-block-storage
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -37,19 +51,6 @@ spec:
         persistentVolumeClaim:
           claimName: xkcd-images
 
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  namespace: xkcd-clone
-  name: xkcd-images
-spec:
-  accessModes:
-  - ReadWriteMany
-  resources:
-    requests:
-      storage: 5Gi
-  storageClassName: do-block-storage
 ---
 apiVersion: v1
 kind: Service
