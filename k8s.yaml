@@ -41,6 +41,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  namespace: xkcd-clone
   name: xkcd-images
 spec:
   accessModes:
