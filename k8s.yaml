@@ -6,21 +6,6 @@ metadata:
 
 ---
 apiVersion: v1
-kind: PersistentVolume
-metadata:
-  namespace: xkcd-clone
-  name: xkcd-images
-  labels:
-    type: csi
-spec:
-  storageClassName: do-block-storage
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteMany
-
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   namespace: xkcd-clone
