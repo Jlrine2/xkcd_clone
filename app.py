@@ -34,7 +34,7 @@ def all_images():
         else:
             break
     
-    return render_template("newFirst.html", images=images, maxVal=max_val)
+    return render_template("newFirst.html", maxVal=max_val)
 
 
 if __name__ == "__main__":
