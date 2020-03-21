@@ -10,7 +10,7 @@ COPY templates /app/templates
 COPY static /app/static
 
 
-ENV MAX_VAL=0
+ENV MAX_VAL=405
 RUN apt update -y && apt install -y gcc
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
